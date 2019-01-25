@@ -5,18 +5,23 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import { Container as TagsScreen} from '../TagsScreen';
+import { Component as TagsScreen} from '../TagsScreen';
+import { Component as RootLayout } from 'src/components/RootLayout';
 
-export default class App extends React.Component {
+class App extends React.Component {
 
   render() {
     return (
       <Router>
-        <Switch>
-          <Redirect from="/" exact to="/tags" />
-          <Route path="/tags" component={TagsScreen}/>
-        </Switch>
+        <RootLayout>
+          <Switch>
+            <Redirect from="/" exact to="/tags" />
+            <Route path="/tags" component={TagsScreen}/>
+          </Switch>
+        </RootLayout>
       </Router>
     );
   }
 }
+
+export default App;

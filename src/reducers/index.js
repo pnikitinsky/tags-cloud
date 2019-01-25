@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import tag from './tag';
+import tags from './tags-cloud';
 
 export default combineReducers({
-  tag,
+  tags,
 });

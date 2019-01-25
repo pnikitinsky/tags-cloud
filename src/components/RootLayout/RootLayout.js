@@ -6,12 +6,12 @@ import styled from 'styled-components';
 const Section = styled.section`
   width: 100%;
   min-height: 50px;
-  background-color: gray;
   display: flex;
   flex-direction: column;
   justify-self: stretch;
   align-items: center;
   justify-content: flex-end;
+  margin-top: 50px;
   
 `;
 

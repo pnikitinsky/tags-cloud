@@ -13,14 +13,15 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'public'),
     compress: true,
     hot: false,
-    port: 4000,
+    port: 3000,
     historyApiFallback: {
       disableDotRule: true,
     },
   },
   output: {
     path: path.join(__dirname, '/public'),
-    filename: 'index_bundle.js'
+    filename: 'index_bundle.js',
+    publicPath: '/',
   },
   resolve: {
     alias: {

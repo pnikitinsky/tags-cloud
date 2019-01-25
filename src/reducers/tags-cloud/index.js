@@ -1,16 +1,11 @@
 import { handleActions } from 'redux-actions';
-import { FETCH_TAG } from 'src/actions/tags-cloud';
+import { fetchTags } from 'src/utils/tags';
 
 const defaultState = {
-  list: [],
+  list: fetchTags(),
 };
 
 export default handleActions(
-  {
-    [FETCH_TAG]: (state, action) => ({
-      ...state,
-      ...action.payload,
-    }),
-  },
+  {},
   defaultState,
 );

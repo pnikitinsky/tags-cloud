@@ -1,21 +1,13 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import TagsScreen from './TagsScreen';
 
 export function mapStateToProps(state) {
-  return {};
-}
-
-export function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-
-    },
-    dispatch
-  );
+  return {
+    tags: state.tags.list,
+  };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(TagsScreen);

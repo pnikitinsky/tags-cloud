@@ -5,8 +5,9 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import { Component as TagsScreen} from '../TagsScreen';
+import { Container as TagsScreen} from 'src/screens/TagsScreen';
 import { Component as RootLayout } from 'src/components/RootLayout';
+import { Component as Tag } from 'src/components/Tag';
 
 class App extends React.Component {
 
@@ -16,7 +17,8 @@ class App extends React.Component {
         <RootLayout>
           <Switch>
             <Redirect from="/" exact to="/tags" />
-            <Route path="/tags" component={TagsScreen}/>
+            <Route path="/tags" component={ TagsScreen } />
+            <Route path="/tag/:tagId?" component={ Tag } />
           </Switch>
         </RootLayout>
       </Router>

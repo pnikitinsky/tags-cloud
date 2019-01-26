@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { getDesiredTag } from 'src/utils/tags';
+import { getDesiredTagBy } from 'src/utils/tags';
 import { Component as Header } from 'src/components/Header';
 import { Link } from 'react-router-dom';
 import { MainContent } from 'src/screens/TagsScreen'
@@ -38,7 +38,7 @@ class Tag extends React.Component {
     const { tagId } = match.params;
     if (tagId) {
       this.setState({
-        desiredTagData: getDesiredTag(tagId),
+        desiredTagData: getDesiredTagBy(tagId),
       });
     }
   }
@@ -57,6 +57,11 @@ class Tag extends React.Component {
     desiredTagData: {},
   };
 
+  /**
+   *
+   * @param types  i.e. Page Types
+   * @returns {[String]}
+   */
   parsePageTypes = types => {
     return Object.entries(types).map(
       (type, key) => (
@@ -69,8 +74,16 @@ class Tag extends React.Component {
     );
   };
 
+  /**
+   *
+   * @param mentions
+   * @returns {*|number}
+   */
+  countMentions = mentions => (mentions || 0);
+
   render() {
     const { desiredTagData } = this.state;
+    const { countMentions } = this;
     return (
       <Container>
         <Header screen={'tag'}/>
@@ -78,10 +91,10 @@ class Tag extends React.Component {
           desiredTagData &&
           <ItemsContainer>
             <InfoItem>{`Label: ${desiredTagData.label}`}</InfoItem>
-            <InfoItem>{`Total Mentions: ${desiredTagData.totalMentions || 0 }`}</InfoItem>
-            <InfoItem>{`Negative Mentions: ${desiredTagData.negativeMentions || 0 }`}</InfoItem>
-            <InfoItem>{`Positive Mentions: ${desiredTagData.positiveMentions || 0 }`}</InfoItem>
-            <InfoItem>{`Neutral Mentions: ${desiredTagData.neutralMentions || 0 }`}</InfoItem>
+            <InfoItem>{`Total Mentions: ${countMentions(desiredTagData.totalMentions)}`}</InfoItem>
+            <InfoItem>{`Negative Mentions: ${countMentions(desiredTagData.negativeMentions)}`}</InfoItem>
+            <InfoItem>{`Positive Mentions: ${countMentions(desiredTagData.positiveMentions)}`}</InfoItem>
+            <InfoItem>{`Neutral Mentions: ${countMentions(desiredTagData.neutralMentions)}`}</InfoItem>
             <ItemsContainer>
               <p>Page Types:</p>
               {

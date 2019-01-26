@@ -16,6 +16,10 @@ const availableLocations = {
 
 export default class Header extends React.Component {
 
+  /**
+   *
+   * @type {{screen: shim}} the title lettering for one of the available screens
+   */
   static propTypes = {
     screen: PropTypes.oneOf(['home', 'tag']),
   };

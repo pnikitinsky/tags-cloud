@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Component as Header } from 'src/components/Header';
+import { fetchTags } from 'src/utils/tags';
 
 export const MainContent = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ const Item = styled.div`
   flex: 1 auto;
   padding: 0.5rem;
   text-align: center;
-  opacity: ${props => props.opacity};
+  opacity: ${props => props.opacityAmount};
   font-size: ${props => props.sentimentScore};
 
 `;
@@ -46,9 +47,11 @@ class TagsScreen extends React.Component {
 
   static propTypes = {
     tags: PropTypes.array,
+    fetchTags: PropTypes.func,
   };
 
   componentDidMount() {
+    this.props.fetchTags(fetchTags());
     this.interval = setInterval(() => this.setState({ time: Date.now() }), 3000);
   }
 
@@ -56,19 +59,16 @@ class TagsScreen extends React.Component {
     clearInterval(this.interval);
   }
 
-  randomOpacity = () => {
-    return Math.random();
-  };
+  randomOpacityAndFont = ({ minFont, maxFont }) => {
+    const opacityAmount = Math.random();
+    const fontSize = Math.random() * (maxFont-minFont) + minFont;
 
-  randomFont = ({ min, max }) => {
-    console.log(Math.random() * (max-min) + min);
-    return Math.random() * (max-min) + min ;
+    return { opacityAmount, sentimentScore: `${fontSize}px` };
   };
 
   render() {
     const { tags } = this.props;
-    const { randomOpacity, randomFont } = this;
-    const sentimentScorePixels = `${randomFont({min: 14, max: 20})}px`;
+    const { randomOpacityAndFont } = this;
     return (
       <MainContent>
         <Header screen={'home'}/>
@@ -76,11 +76,10 @@ class TagsScreen extends React.Component {
           { tags.map(
             (tagInfo, key) => (
               <Item
-                opacity={randomOpacity()}
+                {...randomOpacityAndFont({ minFont: 14, maxFont: 20 })}
                 key={key}
-                sentimentScore={sentimentScorePixels}
               >
-                <TagLink key={key} to={`/tag/${tagInfo.id}/`}>
+                <TagLink to={`/tag/${tagInfo.id}/`}>
                   { tagInfo.label }
                 </TagLink>
               </Item>

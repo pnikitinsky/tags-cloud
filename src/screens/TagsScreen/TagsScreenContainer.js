@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import TagsScreen from './TagsScreen';
+import { fetchTags } from 'src/actions/tag-cloud';
+
 
 export function mapStateToProps(state) {
   return {
@@ -7,7 +10,15 @@ export function mapStateToProps(state) {
   };
 }
 
+export function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      fetchTags,
+    },
+    dispatch
+  );
+}
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(TagsScreen);

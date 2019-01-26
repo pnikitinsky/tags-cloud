@@ -21,7 +21,7 @@ export function fetchTags() {
   return tagsWithRequiredData;
 }
 
-export function getDesiredTag(id) {
+export function getDesiredTagBy(id) {
   const state = store.getState();
   const tags = state.tags.list;
 

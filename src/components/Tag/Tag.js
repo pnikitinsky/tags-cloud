@@ -3,10 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { getDesiredTag } from 'src/utils/tags';
 import { Component as Header } from 'src/components/Header';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { MainContent } from 'src/screens/TagsScreen'
 
-const Container = styled.div``;
+const Container = styled(MainContent)`
+  color: white;
+  align-items: center;
+`;
+
 const InfoItem = styled.li``;
+
 const ItemsContainer = styled.ul`
   display: flex;
   flex-basis: 45%;
@@ -15,13 +21,20 @@ const ItemsContainer = styled.ul`
   list-style-type: none;
 `;
 
+const BackToHomeLink = styled(Link)`
+  display: inline-block;
+  border: 1px solid orange;
+  padding: 10px;
+  color: white;
+`;
+
 class Tag extends React.Component {
   static propTypes = {
     match: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
-    const { match} = this.props;
+    const { match } = this.props;
     const { tagId } = match.params;
     if (tagId) {
       this.setState({
@@ -33,13 +46,13 @@ class Tag extends React.Component {
   state = {
     /**
      * @desiredTagData { object }, has to contain su data as:
-     *   @label { string }
-     *   @id { string }
-     *   @totalMentions { integer }
-     *   @negativeMentions { integer }
-     *   @positiveMentions { integer }
-     *   @neutralMentions { integer }
-     *   @pageTypes { object }
+     *   - @label { string }
+     *   - @id { string }
+     *   - @totalMentions { integer }
+     *   - @negativeMentions { integer }
+     *   - @positiveMentions { integer }
+     *   - @neutralMentions { integer }
+     *   - @pageTypes { object }
      */
     desiredTagData: {},
   };
@@ -75,12 +88,12 @@ class Tag extends React.Component {
                 desiredTagData.pageTypes &&
                 this.parsePageTypes(desiredTagData.pageTypes)
               }
-              </ItemsContainer>
+            </ItemsContainer>
           </ItemsContainer>
         }
-        <Link to={'/tags'}>
+        <BackToHomeLink to={'/tags'}>
           Back to the Home screen
-        </Link>
+        </BackToHomeLink>
       </Container>
     );
   }

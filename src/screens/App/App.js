@@ -5,7 +5,7 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import { Container as TagsScreen} from 'src/screens/TagsScreen';
+import { Container as TagsScreen } from 'src/screens/TagsScreen';
 import { Component as RootLayout } from 'src/components/RootLayout';
 import { Component as Tag } from 'src/components/Tag';
 

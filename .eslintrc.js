@@ -19,12 +19,21 @@ module.exports = {
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
-    "comma-dangle": 0,
     "react/jsx-uses-vars": 1,
     "react/display-name": 1,
     "no-unused-vars": "warn",
-    "no-console": 1,
-    "no-unexpected-multiline": "warn"
+    "no-unexpected-multiline": "warn",
+    'no-console': 'off',
+    indent: ['error', 2],
+    quotes: ['error', 'single'],
+    'quote-props': ['error', 'as-needed', { keywords: true }],
+    'comma-dangle': ['error', 'always-multiline'],
+    'space-in-parens': ['error', 'never'],
+    'object-curly-spacing': ['error', 'always'],
+    'array-bracket-spacing': ['error', 'never'],
+    'computed-property-spacing': ['error', 'never'],
+    // NOTE: This is some dependency issue workaround
+    'jsx-a11y/href-no-hash': [0],
   },
   "settings": {
     "react": {

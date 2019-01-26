@@ -6,11 +6,12 @@ const Container = styled.h1`
   display: flex;
   flex-direction: column;
   align-self: center;
+  color: white;
 `;
 
 const availableLocations = {
-  home: 'Home Screen',
-  tag: 'Tag\'s Screen'
+  home: 'Tags Cloud Home Screen',
+  tag: 'Tag\'s Screen',
 };
 
 export default class Header extends React.Component {

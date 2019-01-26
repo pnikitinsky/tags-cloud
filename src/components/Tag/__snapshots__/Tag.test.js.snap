@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag should match snapshot 1`] = `
+<div
+  className="sc-EHOje jmkGjr sc-bwzfXH DRIRY"
+>
+  <h1
+    className="sc-bdVaJa ejDcSq"
+  >
+    Tag's Screen
+  </h1>
+  <ul
+    className="sc-gzVnrw cnXzHt"
+  >
+    <li
+      className="sc-bZQynM bOrPFB"
+    >
+      Label: D/B Presents
+    </li>
+    <li
+      className="sc-bZQynM bOrPFB"
+    >
+      Total Mentions: 3
+    </li>
+    <li
+      className="sc-bZQynM bOrPFB"
+    >
+      Negative Mentions: 0
+    </li>
+    <li
+      className="sc-bZQynM bOrPFB"
+    >
+      Positive Mentions: 0
+    </li>
+    <li
+      className="sc-bZQynM bOrPFB"
+    >
+      Neutral Mentions: 3
+    </li>
+    <ul
+      className="sc-gzVnrw cnXzHt"
+    >
+      <p>
+        Page Types:
+      </p>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        blog,3
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        facebook,0
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        forum,0
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        general,0
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        image,0
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        news,0
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        review,0
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        twitter,0
+      </li>
+      <li
+        className="sc-bZQynM bOrPFB"
+      >
+        video,0
+      </li>
+    </ul>
+  </ul>
+  <a
+    className="sc-htoDjs bPMUhx"
+    href="/tags"
+    onClick={[Function]}
+  >
+    Back to the Home screen
+  </a>
+</div>
+`;

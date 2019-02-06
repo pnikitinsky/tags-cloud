@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "tags-cloud",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -46,8 +46,6 @@
     "jest": "23.4.2",
     "lint-staged": "7.3.0",
     "postcss-loader": "3.0.0",
-    "prettier": "1.14.3",
-    "react-styleguidist": "8.0.5",
     "react-test-renderer": "16.4.2",
     "style-loader": "0.21.0",
     "uglifyjs-webpack-plugin": "1.2.5",
@@ -62,9 +60,8 @@
     "ws": "6.0.0"
   },
   "dependencies": {
-    "deepmerge": "^3.1.0",
+    "deepmerge": "3.1.0",
     "prop-types": "15.6.1",
-    "qs": "6.5.2",
     "query-string": "^6.2.0",
     "react": "16.4.0",
     "react-dom": "16.4.0",
